@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>History Portfolio</title>
+ <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<nav>
+<h1>Chris's History and Computer Science Portfolio</h1>
+
+<ul>
+<li><a class="active" href="mywebsite.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="resume.html">Resume</a></li>
+<li><a href="contact.html">Contact</a></li>
+
+<li class="dropdown">
+<a href="resources.html">Resources ▾</a>
+<ul class="dropdown-menu">
+<li><a href="philosophy.html">Philosophy</a></li>
+<li><a href="history.html">History</a></li>
+<li><a href="government.html">Government</a></li>
+</ul>
+</li>
+
+</ul>
+</nav>
+
+<section id="home">
+<h2>Home</h2>
+<p>Welcome to my professional history portfolio website.</p>
+<img class="fade-img" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+</section>
+
+<section id="contact">
+<h2>To Contact Creator Please Fill in the Infomation</h2>
+
+<form id="contactForm">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea placeholder="Message" required></textarea>
+<button type="submit">Send</button>
+</form>
+
+<p id="message"></p>
+</section>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit",function(e){
+e.preventDefault();
+document.getElementById("message").innerText="Message sent successfully!";
+});
+
+const images=document.querySelectorAll(".fade-img");
+
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+images.forEach(img=>observer.observe(img));
+</script>
+
+</body>
+</html>
